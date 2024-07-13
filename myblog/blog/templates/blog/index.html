@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+my blog
+{% endblock  %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/index.css" %}">
+<link rel="stylesheet" href="{% static "blog/post.css" %}">
+{% endblock  %}
+
+{% block content %}
+<section id="welcome">
+    <header>
+        <img src="{% static "blog/images/user.jpg" %}" alt="dj - the author of this blog"/>
+        <h2>Dev's Blog</h2>
+    </header>
+    <p>Hi i am Dev and i love to blog about tech and the world</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My latest thoughts</h2>
+    <ul>
+        {% for post in posts %}
+            {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What I Do</h2>
+    <p>{% lorem 1 b random %}</p>
+    <p>{% lorem 1 b random %}</p>
+</section>
+{% endblock  %}
